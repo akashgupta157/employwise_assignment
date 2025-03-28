@@ -4,8 +4,8 @@ import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { Button } from "./components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect, useState, useMemo } from "react";
-import { LoaderCircle, Pencil, Trash2, Search, X } from "lucide-react";
+import React, { useEffect, useState, useMemo, useContext } from "react";
+import { LoaderCircle, Pencil, Trash2, Search, X, LogOut } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -39,6 +39,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { AuthContext } from "./ContextAPI/AuthContext";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
@@ -51,6 +52,7 @@ const formSchema = z.object({
 });
 
 export default function App() {
+  const { logout } = useContext(AuthContext);
   const [userData, setUserData] = useState({
     userList: [],
     loading: true,
@@ -212,9 +214,20 @@ export default function App() {
         </div>
       ) : (
         <>
-          <h1 className="text-2xl md:text-3xl font-bold text-center mb-6">
-            Users List
-          </h1>
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-2xl md:text-3xl font-bold text-center mb-6">
+              Users List
+            </h1>
+            <div className="flex justify-end mb-4">
+              <Button
+                onClick={logout}
+                className="bg-red-500 hover:bg-red-600 cursor-pointer"
+              >
+                <LogOut className="mr-2 h-4 w-4" />
+                Logout
+              </Button>
+            </div>
+          </div>
 
           <div className="flex flex-col md:flex-row gap-4 mb-8 px-4">
             <div className="relative flex-1">

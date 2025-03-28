@@ -24,8 +24,8 @@ A React application that integrates with the Reqres API to perform user authenti
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/employwise.git
-   cd employwise
+   git clone https://github.com/akashgupta157/employwise_assignment.git
+   cd employwise_assignment
    ```
 
 2. Install dependencies:
@@ -82,4 +82,4 @@ A React application that integrates with the Reqres API to perform user authenti
 
 ## Hosted Version
 
-The application is hosted on Vercel: [https://employwise.vercel.app](https://employwise.vercel.app)
+The application is hosted on Vercel: [https://employwise-assignment-one.vercel.app](https://employwise-assignment-one.vercel.app)
